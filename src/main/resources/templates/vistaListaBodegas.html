@@ -1,109 +1,48 @@
 <!DOCTYPE html>
-
-
-
-<html xmls:th="http://www.thymeleaf.org">
-
-
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-
-
-
 	<meta charset="UTF-8">
-
-
-
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-
 	<title>Document</title>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-		integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-
+	
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
 </head>
 
-
-
 <body>
 
-	<table>
-
-
-
+	<table class="table table-blue">
 		<thead>
-
-
-
 			<tr>
-
-
-
-				<th>ID</th>
-
-
-
 				<th>Nombre</th>
-
-
-
-				<th>numero</th>
-
-
-
-				<th>direccion</th>
-				<th>telefono</th>
+				<th>Numero</th>
+				<th>Direccion</th>
+				<th>Telefono</th>
 				
-
 			</tr>
-
-
-
 		</thead>
-
-
-
-		<hbody>
-
-
-
+		<tbody>
 			<tr th:each="bodega:${bodegas}">
-
-
-
-				<td th:text="${bodega.id}"></td>
-
-
-
 				<td th:text="${bodega.nombre}"></td>
-
-
-
 				<td th:text="${bodega.numero}"></td>
-
-
-
 				<td th:text="${bodega.direccion}"></td>
 				<td th:text="${bodega.telefono}"></td>
-				
-
-
+				<td>
+					<form action="#" th:action="@{/bodegas/borrar/{id}(id=${bodega.id})}" th:object="${bodega}"
+						th:method="DELETE">
+						<input type="submit" value="Borrar">
+					</form>
+				</td>
 			</tr>
-
-
-
-		</hbody>
-
-
-
+		</tbody>
 	</table>
-	<a class="btn btn-outline-primary" th:href="@{/bodegas/nuevo}">Agregar nuevo propietario</a>
-
+	<div>
+		<a th:href="@{/bodegas/nuevaBodega}" class="btn btn-outline-success">Agregar nueva </a>
+	</div>
 
 </body>
-
-
 
 </html>

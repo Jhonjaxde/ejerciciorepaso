@@ -19,10 +19,6 @@ public class Inventario {
 	@Id
 	@Column(name = "inve_id")
 	private Integer id;
-	@Column(name = "inve_numeroBodega")
-	private String numeroBodega;
-	@Column(name = "inve_codigoBarrasIndividual")
-	private String codigoBarrasIndividual;
 	@Column(name = "inve_cantidad")
 	private Integer cantidad;
 	
@@ -41,22 +37,6 @@ public class Inventario {
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	public String getNumeroBodega() {
-		return numeroBodega;
-	}
-
-	public void setNumeroBodega(String numeroBodega) {
-		this.numeroBodega = numeroBodega;
-	}
-
-	public String getCodigoBarrasMaestro() {
-		return codigoBarrasIndividual;
-	}
-
-	public void setCodigoBarrasMaestro(String codigoBarrasMaestro) {
-		this.codigoBarrasIndividual = codigoBarrasMaestro;
 	}
 
 	public Integer getCantidad() {
@@ -79,18 +59,10 @@ public class Inventario {
 		return bodega;
 	}
 
-	public void setInventario(Bodega bodega) {
+	public void setBodega(Bodega bodega) {
 		this.bodega = bodega;
 	}
 
-	@Override
-	public String toString() {
-		return "Inventario [id=" + id + ", numeroBodega=" + numeroBodega + ", codigoBarrasMaestro="
-				+ codigoBarrasIndividual + ", cantidad=" + cantidad + ", producto=" + producto + ", bodega="
-				+ bodega + "]";
-	}
-	
-	
 	
 	
 	

@@ -30,7 +30,7 @@ public class Bodega {
 	@Column(name ="bode_telefono")
 	private String telefono;
 	
-	@OneToMany(mappedBy = "bodega", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "bodega",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Inventario> inventarios;
 
 	public Integer getId() {
@@ -81,12 +81,7 @@ public class Bodega {
 		this.inventarios = inventarios;
 	}
 
-	@Override
-	public String toString() {
-		return "Bodega [id=" + id + ", nombre=" + nombre + ", numero=" + numero + ", direccion=" + direccion
-				+ ", telefono=" + telefono + ", inventarios=" + inventarios + "]";
-	}
-	
+
 	
 	
 }

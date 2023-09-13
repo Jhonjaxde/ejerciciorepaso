@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,18 +16,22 @@ public class ProductoServiceImpl implements IProductoService{
 	@Autowired
 	private IProductoRepository productoRepository;
 
+	
+	
+	
+
 	@Override
 	@Transactional(value = TxType.REQUIRED)
-	public void agregar(Producto producto) {
-	this.productoRepository.insertar(producto);
+	public void insertar(Producto producto) {
+		producto.setStock(0);
+		this.productoRepository.insertar(producto);
 		
 	}
 
 	@Override
 	@Transactional(value = TxType.REQUIRED)
-	public List<Producto> buscarLista() {
-		
-		return this.productoRepository.seleccionarLista();
+	public Producto buscarPorCodigoBarrasMaestro(String codigoBarrasMaestro) {
+		return this.productoRepository.buscarPorCodigoBarrasMaestro(codigoBarrasMaestro);
 	}
 
 

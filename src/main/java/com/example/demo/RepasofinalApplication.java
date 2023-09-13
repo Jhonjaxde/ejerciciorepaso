@@ -16,7 +16,7 @@ private IBodegaService bodegaService;
 	}
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println(this.bodegaService.buscarLista());
+		//System.out.println(this.bodegaService.buscarLista());
 		
 	}
 

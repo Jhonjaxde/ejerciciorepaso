@@ -2,6 +2,7 @@ package com.example.demo.repository.modelo;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -32,7 +33,7 @@ public class Producto {
 	@Column(name = "prod_stock")
 	private Integer stock;
 	
-	@OneToMany(mappedBy = "producto", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "producto",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Inventario> inventarios;
 
 	public Integer getId() {
@@ -83,11 +84,6 @@ public class Producto {
 		this.inventarios = inventarios;
 	}
 
-	@Override
-	public String toString() {
-		return "Producto [id=" + id + ", nombre=" + nombre + ", codigoBarrasMaestro=" + codigoBarrasMaestro
-				+ ", categoria=" + categoria + ", stock=" + stock + ", inventarios=" + inventarios + "]";
-	}
-	
+
 	
 }

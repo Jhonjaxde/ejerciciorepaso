@@ -15,18 +15,41 @@ public class BodegaServiceImpl implements IBodegaService{
 
 	@Autowired
 	private IBodegaRepository bodegaRepository;
+	
+	
 	@Override
 	@Transactional(value = TxType.REQUIRED)
-	public void agregar(Bodega bodega) {
+	public void insertar(Bodega bodega) {
 		this.bodegaRepository.insertar(bodega);
 		
 	}
 
 	@Override
 	@Transactional(value = TxType.REQUIRED)
-	public List<Bodega> buscarLista() {
+	public void eliminar(Integer id) {
+		this.bodegaRepository.eliminar(id);
 		
-		return this.bodegaRepository.seleccionarLista();
+	}
+
+	@Override
+	@Transactional(value = TxType.REQUIRED)
+	public Bodega buscar(Integer id) {
+		
+		return this.bodegaRepository.buscar(id);
+	}
+
+	@Override
+	@Transactional(value = TxType.REQUIRED)
+	public List<Bodega> buscarTodos() {
+		
+		return this.bodegaRepository.buscarTodos();
+	}
+
+	@Override
+	@Transactional(value = TxType.REQUIRED)
+	public Bodega buscarPorNumero(Integer numero) {
+		
+		return this.bodegaRepository.buscarPorNumero(numero);
 	}
 
 }
